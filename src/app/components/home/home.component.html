@@ -1,0 +1,8 @@
+<mat-card>
+    <mat-card-content><a routerLink="/login">login</a></mat-card-content>
+</mat-card>
+<mat-card>
+    <div >
+        <mat-card-content *ngIf="email" [innerText]="email"></mat-card-content>
+    </div>
+</mat-card>

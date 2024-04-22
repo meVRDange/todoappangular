@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <label>username</label>
+        <input type="text" [formControl]="username">
+    </div>
+    <div>
+        <label>password</label>
+        <input type="password" [formControl]="password">
+    </div>
+    <button (click)="signup()">signup</button>
+    <button (click)="login()" >login</button>
+</div>
+
+<mat-card>
+    <mat-card-content><a routerLink="">home</a></mat-card-content>
+</mat-card>
