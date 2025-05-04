@@ -17,5 +17,5 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent {
 
   loginService: LoginService = inject(LoginService);
-  email = this.loginService.gatUserEmail();
+  // email = this.loginService.gatUserEmail();
 }

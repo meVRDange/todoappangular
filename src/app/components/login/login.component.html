@@ -1,16 +1,9 @@
-<div>
-    <div>
-        <label>username</label>
-        <input type="text" [formControl]="username">
-    </div>
-    <div>
-        <label>password</label>
-        <input type="password" [formControl]="password">
-    </div>
-    <button (click)="signup()">signup</button>
-    <button (click)="login()" >login</button>
+<div class="flex h-screen items-center justify-center bg-slate-50">
+    <form class="border-1 flex max-w-lg flex-col items-center space-y-3 rounded-md px-5 py-5 shadow-xl">
+        <p class="text-3xl">Login</p>
+        <input class="focus: w-60 rounded border p-1" type="text" [formControl]="username" placeholder="username" />
+        <input class="mb w-60 rounded border p-1" type="text" [formControl]="password" placeholder="password" />
+        <button class="h-9 w-60 rounded bg-blue-400 text-yellow-50" >Login</button>
+        <button class="h-9 w-60 rounded border text-blue-900" (click)="goToSignup()">Signup</button>
+    </form>
 </div>
-
-<mat-card>
-    <mat-card-content><a routerLink="">home</a></mat-card-content>
-</mat-card>

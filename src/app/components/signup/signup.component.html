@@ -1,0 +1,19 @@
+<div class="flex h-screen items-center justify-center bg-slate-50">
+    <form class="border-1 w- flex max-w-lg flex-col items-center space-y-3 rounded-md px-5 py-5 shadow-xl">
+        <p class="text-3xl">Sign Up</p>
+        <input class="focus: w-60 rounded border p-1" type="text" [formControl]="email" placeholder="email" />
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div class="flex" *ngIf="email.hasError('required')">
+                <i class="material-icons" style="color:red">&#xe002;</i>
+                <p>email is required.</p>
+            </div>
+            <div *ngIf="email.hasError('minlength')">Not a valid email address</div>
+        </div>
+        <input class="focus: w-60 rounded border p-1" type="text" [formControl]="username" placeholder="username" />
+        <input class="mb w-60 rounded border p-1" type="text" [formControl]="password" placeholder="password" />
+        <input class="mb w-60 rounded border p-1" type="text" [formControl]="confirmPassword"
+            placeholder="Confirm password" />
+        <button class="h-9 w-60 rounded bg-blue-400 text-yellow-50" (click)="signUp($event)">Sign Up</button>
+        <button class="h-9 w-60 rounded border text-blue-900" (click)="popup($event)">Login</button>
+    </form>
+</div>
