@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
@@ -14,11 +14,14 @@ import { PopupService } from '../../services/popup-service.service';
 })
 export class SignupComponent {
 
+  
+
   constructor(
     private router: Router,
     private loginService: LoginService,
     private popupService: PopupService
   ) {}
+
 
   email = new FormControl("", [Validators.required, Validators.email]);
   username = new FormControl("", [Validators.required, Validators.min(5), Validators.maxLength(15)]);
@@ -32,18 +35,16 @@ export class SignupComponent {
   async signUp(event: any) {
     console.log("in signup")
     event.preventDefault();
-    if(this.username.value && this.password.value && this.confirmPassword.value){
-    console.log("in first if")
-      if(this.password == this.confirmPassword) {
-        console.log("in second if")
-        console.log(this.username, this.password);
 
+    if(this.email.value && this.password.value && this.confirmPassword.value){
+      if(this.password.value == this.confirmPassword.value) {
+        console.log(this.email, this.password);
         var signUpResult = await this.loginService.signUp(
-        this.username.value,
+        this.email.value,
         this.password.value);
-  
-        if(signUpResult == "EMAIL_EXISTS"){
-          this.popupService.showPopup(`this ${this.email} is already associated with another account`);
+        console.log(signUpResult);
+        if(signUpResult.includes("email-already-in-use")){
+          this.popupService.showPopup(`this ${this.email.value} is already associated with another account`);
         }
       } else {
         console.log("in else")

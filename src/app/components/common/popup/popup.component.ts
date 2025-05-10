@@ -13,11 +13,11 @@ import { PopupService } from '../../../services/popup-service.service';
   animations: [
     trigger('slideIn', [
       transition(':enter', [
-        style({ transform: 'translateX(100%)' }),
+        style({ transform: 'translateY(-100%)'}),
         animate('300ms ease-out', style({ transform: 'translateX(0%)' }))
       ]),
       transition(':leave', [
-        animate('300ms ease-in', style({ transform: 'translateX(100%)' }))
+        animate('300ms ease-in', style({ transform: 'translateY(-100%)' }))
       ])
     ])
   ]
@@ -34,10 +34,9 @@ export class PopupComponent implements OnInit{
     console.log(`from service ${this.message}`);
     this.popupService.popupState$.subscribe(popupState => {
       this.showPopup = popupState;
-      if(popupState) {
+      if(this.showPopup) {
         this.message= this.popupService.message;
         console.log(`from service ${this.message}`);
-        document.querySelector('.popup')?.classList.add('show');
         setTimeout(() => {
         }, 100);
 

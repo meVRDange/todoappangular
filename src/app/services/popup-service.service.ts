@@ -5,12 +5,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class PopupService {
-  private popupState = new BehaviorSubject<boolean>(true);
+  private popupState = new BehaviorSubject<boolean>(false);
   popupState$ = this.popupState.asObservable();
+
   message: string="";
 
   showPopup(message: string) {
-    console.log(`${message}`);
     this.message = message;
     this.popupState.next(true);
   }

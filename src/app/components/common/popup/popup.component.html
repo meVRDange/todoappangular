@@ -1,4 +1,11 @@
-<div [@slideIn]="true" *ngIf="showPopup" class="popup">
+<!-- <div [@slideIn]="true" *ngIf="showPopup" class="popup">
     {{message}}
 </div>
+ -->
+
+<div [@slideIn]="true" *ngIf="showPopup"  class="fixed transform -translate-x-1/2 top-5 left-1/2  bg-blue-500 text-white px-6 py-3 rounded shadow-lg flex items-center justify-center z-50">
+    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    {{message}}
+</div>
+    
     
